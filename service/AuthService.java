@@ -21,7 +21,7 @@ public class AuthService {
     private JwtUtils jwtUtils;
     public void register(RegisterRequest req){
         if(userRepository.findByUsername(req.getUsername()).isPresent()){
-            throw new RuntimeException("Username already exists");
+            throw new RuntimeException("Username already taken");
         }
         User user = new User();
         user.setUsername(req.getUsername());
@@ -31,9 +31,9 @@ public class AuthService {
     }
     public AuthResponse login(LoginRequest req){
         User user = userRepository.findByUsername(req.getUsername())
-                .orElseThrow(() -> new RuntimeException("Invalid user"));
+                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
         if(!passwordEncoder.matches(req.getPassword(), user.getPassword())){
-            throw new RuntimeException("Invalid password");
+            throw new RuntimeException("Invalid credentials");
         }
         String token = jwtUtils.generateToken(user.getUsername(), user.getRole());
         return new AuthResponse(token,user.getRole());
