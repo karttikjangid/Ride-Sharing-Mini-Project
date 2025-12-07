@@ -8,6 +8,6 @@ public class NewRideRequest {
     @NotBlank(message = "PickUp location is needed!!")
     private String pickupLocation;
 
-    @NotBlank(message = "Drop location is also requirded!!")
+    @NotBlank(message = "Drop location is also required!!")
     private String dropLocation;
 }
