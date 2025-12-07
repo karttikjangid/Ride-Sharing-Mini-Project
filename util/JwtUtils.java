@@ -51,7 +51,7 @@ public class JwtUtils {
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
-//here token is generateed
+
     public String generateToken(String username, String role) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", role);
