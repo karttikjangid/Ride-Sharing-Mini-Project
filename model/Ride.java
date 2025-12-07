@@ -1,7 +1,5 @@
 package com.choudharykhushboo.RideShare.model;
 
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
