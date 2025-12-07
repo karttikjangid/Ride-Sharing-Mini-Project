@@ -26,30 +26,30 @@ public class JwtUtils {
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
-    public String extractRole(String token) {
-        Claims claims = extractAllClaims(token);
+    public String extractRole(String jwtToken) {
+        Claims claims = extractAllClaims(jwtToken);
         return claims.get("role", String.class);
     }
     public String extractUserName(String jwtToken) {
         return extractClaim(jwtToken, Claims::getSubject);
     }
-    public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+    public Date extractExpiration(String jwtToken) {
+        return extractClaim(jwtToken, Claims::getExpiration);
     }
-    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        Claims claims = extractAllClaims(token);
+    public <T> T extractClaim(String jwtToken, Function<Claims, T> claimsResolver) {
+        Claims claims = extractAllClaims(jwtToken);
         return claimsResolver.apply(claims);
     }
-    private Claims extractAllClaims(String token) {
+    private Claims extractAllClaims(String jwtToken) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
-                .parseClaimsJws(token)
+                .parseClaimsJws(jwtToken)
                 .getBody();
     }
 
-    private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+    private boolean isTokenExpired(String jwtToken) {
+        return extractExpiration(jwtToken).before(new Date());
     }
 
     public String generateToken(String username, String role) {
@@ -65,8 +65,8 @@ public class JwtUtils {
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-    public boolean validateToken(String token, String username) {
-        final String usernameFromToken = extractUserName(token);
-        return usernameFromToken.equals(username) && !isTokenExpired(token);
+    public boolean validateToken(String jwtToken, String username) {
+        final String usernameFromToken = extractUserName(jwtToken);
+        return usernameFromToken.equals(username) && !isTokenExpired(jwtToken);
     }
 }
