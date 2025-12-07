@@ -18,14 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private AuthService authService;
+
     @PostMapping("/register")
     public ResponseEntity<Void> register(@Valid @RequestBody RegisterRequest req){
         authService.register(req);
-       return ResponseEntity.ok().build();
+        return ResponseEntity.ok().build();
     }
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest req){
-      AuthResponse res = authService.login(req);
+        AuthResponse res = authService.login(req);
         return ResponseEntity.ok(res);
     }
 }
