@@ -19,14 +19,14 @@ public class RideService {
     private UserRepository userRepository;
     public Ride createRide (String username, NewRideRequest request){
         User user = userRepository.findByUsername(username).orElseThrow(()-> new RuntimeException("User not found"));
-        Ride ride = new Ride();
-        ride.setUserId(user.getId());
-        ride.setDriverId(null);
-        ride.setPickupLocation(request.getPickupLocation());
-        ride.setDropLocation(request.getDropLocation());
-        ride.setStatus("REQUESTED");
-        ride.setCreatedAt(new Date());
-        return rideRepository.save(ride);
+        Ride newRide = new Ride();
+        newRide.setUserId(user.getId());
+        newRide.setDriverId(null);
+        newRide.setPickupLocation(request.getPickupLocation());
+        newRide.setDropLocation(request.getDropLocation());
+        newRide.setStatus("REQUESTED");
+        newRide.setCreatedAt(new Date());
+        return rideRepository.save(newRide);
     }
     public List<Ride> getRidesForUser(String username) {
         User user = userRepository.findByUsername(username)
