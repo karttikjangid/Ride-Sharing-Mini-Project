@@ -1,9 +1,9 @@
-package com.choudharykhushboo.RideShare.controller;
+package com.rideshare.app.controller;
 
-import com.choudharykhushboo.RideShare.dto.NewRideRequest;
-import com.choudharykhushboo.RideShare.model.Ride;
-import com.choudharykhushboo.RideShare.service.RideService;
-import com.choudharykhushboo.RideShare.util.SecurityHelper;
+import com.rideshare.app.dto.NewRideRequest;
+import com.rideshare.app.model.Ride;
+import com.rideshare.app.service.RideService;
+import com.rideshare.app.util.SecurityHelper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

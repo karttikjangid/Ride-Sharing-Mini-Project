@@ -1,6 +1,6 @@
-package com.choudharykhushboo.RideShare.repository;
+package com.rideshare.app.repository;
 
-import com.choudharykhushboo.RideShare.model.User;
+import com.rideshare.app.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

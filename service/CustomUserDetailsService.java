@@ -1,7 +1,7 @@
-package com.choudharykhushboo.RideShare.service;
+package com.rideshare.app.service;
 
-import com.choudharykhushboo.RideShare.model.User;
-import com.choudharykhushboo.RideShare.repository.UserRepository;
+import com.rideshare.app.model.User;
+import com.rideshare.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

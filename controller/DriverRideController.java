@@ -1,8 +1,8 @@
-package com.choudharykhushboo.RideShare.controller;
+package com.rideshare.app.controller;
 
-import com.choudharykhushboo.RideShare.model.Ride;
-import com.choudharykhushboo.RideShare.service.RideService;
-import com.choudharykhushboo.RideShare.util.SecurityHelper;
+import com.rideshare.app.model.Ride;
+import com.rideshare.app.service.RideService;
+import com.rideshare.app.util.SecurityHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

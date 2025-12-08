@@ -1,12 +1,11 @@
-package com.choudharykhushboo.RideShare.service;
+package com.rideshare.app.service;
 
-import com.choudharykhushboo.RideShare.dto.AuthResponse;
-import com.choudharykhushboo.RideShare.dto.LoginRequest;
-import com.choudharykhushboo.RideShare.dto.RegisterRequest;
-import com.choudharykhushboo.RideShare.model.User;
-import com.choudharykhushboo.RideShare.repository.RideRepository;
-import com.choudharykhushboo.RideShare.repository.UserRepository;
-import com.choudharykhushboo.RideShare.util.JwtUtils;
+import com.rideshare.app.dto.AuthResponse;
+import com.rideshare.app.dto.LoginRequest;
+import com.rideshare.app.dto.RegisterRequest;
+import com.rideshare.app.model.User;
+import com.rideshare.app.repository.UserRepository;
+import com.rideshare.app.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

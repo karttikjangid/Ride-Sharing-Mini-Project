@@ -1,4 +1,4 @@
-package com.choudharykhushboo.RideShare;
+package com.rideshare.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

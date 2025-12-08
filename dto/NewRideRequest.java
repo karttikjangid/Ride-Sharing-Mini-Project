@@ -1,4 +1,4 @@
-package com.choudharykhushboo.RideShare.dto;
+package com.rideshare.app.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

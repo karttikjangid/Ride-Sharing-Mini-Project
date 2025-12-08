@@ -1,10 +1,10 @@
-package com.choudharykhushboo.RideShare.service;
+package com.rideshare.app.service;
 
-import com.choudharykhushboo.RideShare.dto.NewRideRequest;
-import com.choudharykhushboo.RideShare.model.Ride;
-import com.choudharykhushboo.RideShare.model.User;
-import com.choudharykhushboo.RideShare.repository.RideRepository;
-import com.choudharykhushboo.RideShare.repository.UserRepository;
+import com.rideshare.app.dto.NewRideRequest;
+import com.rideshare.app.model.Ride;
+import com.rideshare.app.model.User;
+import com.rideshare.app.repository.RideRepository;
+import com.rideshare.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.choudharykhushboo.RideShare.config;
+package com.rideshare.app.config;
 
-import com.choudharykhushboo.RideShare.service.CustomUserDetailsService;
-import com.choudharykhushboo.RideShare.util.JwtUtils;
+import com.rideshare.app.service.CustomUserDetailsService;
+import com.rideshare.app.util.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

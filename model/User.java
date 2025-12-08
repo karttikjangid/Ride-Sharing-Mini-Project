@@ -1,4 +1,4 @@
-package com.choudharykhushboo.RideShare.model;
+package com.rideshare.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.choudharykhushboo.RideShare.config;
+package com.rideshare.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

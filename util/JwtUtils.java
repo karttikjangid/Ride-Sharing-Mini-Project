@@ -1,4 +1,4 @@
-package com.choudharykhushboo.RideShare.util;
+package com.rideshare.app.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
