@@ -26,26 +26,32 @@ public class JwtUtils {
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
+
     public String extractRole(String jwtToken) {
         Claims claims = extractAllClaims(jwtToken);
         return claims.get("role", String.class);
     }
+
     public String extractUserName(String jwtToken) {
         return extractClaim(jwtToken, Claims::getSubject);
     }
+
     public Date extractExpiration(String jwtToken) {
         return extractClaim(jwtToken, Claims::getExpiration);
     }
+
     public <T> T extractClaim(String jwtToken, Function<Claims, T> claimsResolver) {
         Claims claims = extractAllClaims(jwtToken);
         return claimsResolver.apply(claims);
     }
+
     private Claims extractAllClaims(String jwtToken) {
-        return Jwts.parserBuilder()
+        // Updated for jjwt 0.12.x: use parser() instead of parserBuilder()
+        return Jwts.parser()
                 .setSigningKey(getSigningKey())
                 .build()
-                .parseClaimsJws(jwtToken)
-                .getBody();
+                .parseSignedClaims(jwtToken)
+                .getPayload();
     }
 
     private boolean isTokenExpired(String jwtToken) {
@@ -58,13 +64,14 @@ public class JwtUtils {
         Date now = new Date();
         Date expiry = new Date(now.getTime() + jwtExpirationMs);
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(username)
-                .setIssuedAt(now)
-                .setExpiration(expiry)
+                .claims(claims)
+                .subject(username)
+                .issuedAt(now)
+                .expiration(expiry)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
+
     public boolean validateToken(String jwtToken, String username) {
         final String usernameFromToken = extractUserName(jwtToken);
         return usernameFromToken.equals(username) && !isTokenExpired(jwtToken);
